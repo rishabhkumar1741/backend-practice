@@ -1,0 +1,14 @@
+# Ignore all files and directories in the current directory
+/*
+
+# Ignore specific file
+file.txt
+*.env
+.env
+.env.*
+
+# Ignore specific directory
+directory/
+/.vscode
+/node_modules
+./dist
