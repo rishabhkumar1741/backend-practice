@@ -75,8 +75,8 @@ The structure follows common conventions for Node.js projects, especially those 
 </tr>
 <tr>
 <td>
-<pre>
-A connection method is typically used to establish a connection between your application and a database. It allows your application to interact with the database by sending queries, retrieving data, and performing other database operations.
+<pre >
+A connection method is typically used <br>to establish a connection between your <br>application and a database. It allows <br>your application to interact with the<br>database by sending queries, retrieving <br>data, and performing other database<br>operations.
 </pre>
 </td>
 <td>
