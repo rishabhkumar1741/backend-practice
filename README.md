@@ -9,6 +9,9 @@ project-name/
 │   ├── models
 |   ├── routes
 |   ├── utils
+|   |   └──  ApiError.js
+|   |   └──  AsyncHandler.js
+|   |   └──  ResponseMessage.js
 |   ├── app.js
 |   ├── constants.js
 |   ├── index.js
@@ -122,4 +125,40 @@ export default connectDB;
 9. The error is logged to the console and the process is exited with a failure code (1).
 
 10. The connectDB function is exported for use in other parts of the application.
+
+# Step 3
+1. What is the use of CORS and app.use()
+2. config cors with app.use()
+3. now we settup in how many ways over application take data (like json , form body, data in url ) as set the data limit while sending data
+4. config public folder
+5. use cookiparser so only server can read and add cookies with the database
+6. understand middlewale 
+
+# step 4
+1. start making models with the help of app.eraser.io or any tool 
+2. search efficient with the help of index=true
+
+## step 5 Try to  Make custom api response and erroe handling  
+
+### The Utils folder in your project contains these utility files:
+
+- ApiError.js: A custom error class for handling API-related errors
+- AsyncHandler.js: A higher-order function for handling asynchronous functions and their errors
+- ResponseMessage.js: Utility functions for generating and formatting API responses
+``` 
+- Request
+The req object represents the HTTP request and has properties 
+for the request query string,parameters, body, 
+HTTP headers, and so on.
+
+- HTTP Response Status Codes
+Informational responses (100 – 199)
+Successful responses (200 – 299)
+Redirection messages (300 – 399)
+Client error responses (400 – 499)
+Server error responses (500 – 599)
+```
+1. - learn about  cookie-parser,cors.
+2. - Node.js Error class
+3. - learn about Status code 
 
