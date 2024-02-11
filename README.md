@@ -162,3 +162,34 @@ Server error responses (500 – 599)
 2. - Node.js Error class
 3. - learn about Status code 
 
+````
+const userschema = new mongoose.Schema({
+        userName:{
+        type:String,
+        required:true,
+        unique:true,
+        lowercase:true,
+        trim:true,
+        index:true,
+    },
+},{timestamps:true})
+
+=> Learn about pre method  in mongoose 
+
+userschema.pre('save', async function(next){
+    if(!this.isModified("password"))
+    {
+        return next();
+    }
+    this.password = await bcrypt.hash(this.password,10);
+    next();
+})
+
+=> Study about methods object in mongoose.Schema 
+
+userschema.methods.isPasswordCorrect = async function(password){
+    return await bcrypt.compare(password,this.password);
+}
+````
+
+
