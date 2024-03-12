@@ -5,10 +5,6 @@ dotenv.config({
     path: "./env"
 });
 
-
-
-
-
 connectDB().then(()=>{
     console.log("Connected to the database successfully !!!");
     app.on("erroe",(error)=>{
