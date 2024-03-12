@@ -192,4 +192,89 @@ userschema.methods.isPasswordCorrect = async function(password){
 }
 ````
 
+# Step 6 File Uploader
+1. learn what is callback
+2. learn multer 
+3. 
+4.
+
+### Callback
+In JavaScript, a callback is a function that is passed as an argument to another function and is executed after a particular operation has been completed. Callback functions are commonly used in asynchronous programming, where operations like fetching data from a server or executing a time-consuming task are non-blocking, meaning they don't halt the execution of the program.
+
+````
+// Example of a callback function
+function fetchData(callback) {
+  // Simulating an asynchronous operation
+  setTimeout(function() {
+    const data = 'Data fetched successfully';
+    // Calling the callback function with the fetched data
+    callback(data);
+  }, 2000); // Simulated delay of 2 seconds
+}
+
+// Function to handle the fetched data
+function handleData(data) {
+  console.log(data);
+}
+
+// Calling the fetchData function with the handleData callback
+fetchData(handleData);
+
+````
+In this example:
+
+- fetchData is a function that simulates fetching data asynchronously.
+- handleData is a callback function passed to fetchData.
+- After the data is fetched (simulated by a delay), the handleData callback is invoked with the fetched data as an argument.
+
+## step 7 HTTP BASIC 
+1. HTTP VS HTTPS
+2. URL, URI, and URN
+3. what is HTTP Header
+4. Http Method
+5. 
+
+HTTP (Hypertext Transfer Protocol):
+
+#### HTTP (Hypertext Transfer Protocol):
+- Protocol for transmitting data over the internet.
+- Not secure; data is transmitted in plain text.
+- Uses port 80.
+- Widely used for general web browsing and content delivery.
+- HTTPS (Hypertext Transfer Protocol Secure):
+#### HTTPS (Hypertext Transfer Protocol Secure): 
+- Secure version of HTTP.
+- Encrypts data transmitted over the internet using TLS or SSL.
+- Uses port 443.
+- Essential for secure communication, especially for transmitting sensitive information like login credentials and payment details.
+
+### Here's a comparison of URL, URI, and URN in points:
+
+URL (Uniform Resource Locator):
+- Specifies the location of a resource on the internet.
+- Consists of a protocol (e.g., http://, https://), domain name (or IP address), and optional path and query parameters.
+- Example: https://www.example.com/page1.html
+- Used to access resources such as web pages, images, files, etc.
+
+URI (Uniform Resource Identifier):
+- Identifies a resource on the internet, which can be located using a URL or another means.
+- Encompasses both URLs and URNs.
+- Example: https://www.example.com/page1.html
+- Used for resource identification and can include URLs and URNs.
+
+URN (Uniform Resource Name):
+- Part of the URI specification.
+- Identifies a resource by its name rather than its location or access method.
+- Designed to be persistent and location-independent.
+- Example: urn:isbn:0451450523 (identifies a book by its ISBN)
+- Used for naming resources in a globally unique manner, regardless of where they are stored or accessed.
+
+In summary, URL is a type of URI that specifies the location of a resource on the internet, while URN is another type of URI that identifies a resource by its name rather than its location. URI is a broader term encompassing both URLs and URNs.
+
+#### HTTP HEADER
+<img src="./public//htttpHeader.png" width="350" title="hover text">
+<img src="./public//typesOfHeader.png" width="350" title="hover text">
+<img src="./public//httpMethod.png" width="350" title="hover text">
+<img src="./public//httpStatus.png" width="350" title="hover text">
+
 
