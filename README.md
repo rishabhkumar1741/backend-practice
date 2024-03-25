@@ -272,9 +272,16 @@ URN (Uniform Resource Name):
 In summary, URL is a type of URI that specifies the location of a resource on the internet, while URN is another type of URI that identifies a resource by its name rather than its location. URI is a broader term encompassing both URLs and URNs.
 
 #### HTTP HEADER
-<img src="./public//htttpHeader.png" width="350" title="hover text">
-<img src="./public//typesOfHeader.png" width="350" title="hover text">
-<img src="./public//httpMethod.png" width="350" title="hover text">
-<img src="./public//httpStatus.png" width="350" title="hover text">
+<img src="./gitimg//htttpHeader.png" width="350" title="hover text">
+<img src="./gitimg//typesOfHeader.png" width="350" title="hover text">
+<img src="./gitimg//httpMethod.png" width="350" title="hover text">
+<img src="./gitimg//httpStatus.png" width="350" title="hover text">
+
+## step 8 Learn about postman 
+1. collection
+2. env
+3. how different api get hit 
+
+## step 9 Access Refresh Token, Middleware and cookies
 
 
