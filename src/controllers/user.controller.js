@@ -3,6 +3,7 @@ import { ApiError } from "../utils/ApiError.js";
 import { User } from "../models/user.model.js";
 import {uploadOnCloudinary} from "../utils/cloudinary.js"
 import { ApiRespose } from "../utils/ApiRespose.js";
+import jwt from "jsonwebtoken";
 const  registerUser = asyncHandler(async (req,res)=>{
 
     // get data from the user request  
@@ -149,4 +150,50 @@ const logoutUser = asyncHandler(async (req,res,next)=>{
         throw new ApiError(500,"User logout failed");
     }
 })
-export {registerUser,loginUser,logoutUser}
+
+const generateRefreshToken = asyncHandler(async (req,res,next)=>{
+    try {
+        //get the refresh token from the cookie
+        //with the help of refresh token get the user 
+        // compare the user ref token with the refresh token
+        //generate new access token and refresh token
+        //send the cookie to the user
+        const refToken = req.cookies?.refToken || req.header("Authorization")?.split(" ")[1];
+        if(!refToken)
+        {
+            throw new ApiError(400,"Refresh token is required")
+        }
+        //decode the token
+        try {
+            console.log(refToken,"refToken======>");
+            const decoded = await jwt.verify(refToken,process.env.REFRESH_TOKEN_SECRET);
+            console.log(decoded,"decoded",decoded?.id,"decoded?.id");
+            const user = await User.findById(decoded?.id);
+            if(!user)
+            {
+                return res.status(404).json(new ApiRespose(404,"User not found"))
+            }
+            if(user.refToken !== refToken)
+            {
+                return res.status(401).json(new ApiRespose(401,"Invalid token"))
+            }
+            //generate new access token and refresh token
+            const {accessToken,Referencetoken} = await asccessTokenAndRefereshToken(user._id);
+            //send cookie to the user
+            const option = {
+                httpOnly:true,
+                secure: true
+            }
+            res.cookie("accessToken",accessToken,option).cookie("Referencetoken",Referencetoken,option).status(200).json(new ApiRespose(200,"Token generated successfully",{accessToken,Referencetoken}))
+        } catch (error) {
+            return res.status(404).json(new ApiRespose(404,"Token is expired or invalid"))
+        }
+
+        
+    } catch (error) {
+        return res.status(500).json(
+            new ApiRespose(500,"Internal server error")
+        );
+    }
+})
+export {registerUser,loginUser,logoutUser,generateRefreshToken}
